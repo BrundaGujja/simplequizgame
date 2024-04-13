@@ -1,0 +1,34 @@
+print("*****************************")
+print ("Welcome to my Quiz game")
+questionbank=[
+    {"text":"What is Python?","answer":"a"},
+    {"text":"How do you define a function in Python?","answer":"a"},
+    {"text":"Which of the following statements is true about Python indentation?","answer":"c"}
+]
+options=[
+    ["a. A high-level programming language","b. A type of snake","c. A software development methodology","d. A database management system"],
+    ["a. def function_name():","b. function function_name():","c. define function_name():","d. func function_name():"],
+    ["a. Indentation is optional in Python","b. Python uses curly braces for indentation","c. Incorrect indentation leads to a syntax error","d. Indentation in Python is for aesthetic purposes only"]
+]
+score=0
+def checkanswer(userguess,correctanswer):
+    if userguess==correctanswer:
+        return True
+    else:
+        return False
+for questionnum in range(len(questionbank)):
+    print("************************************")
+    print(questionbank[questionnum]["text"])
+    for i in options[questionnum]:
+        print(i)
+    guess=input("Enter your answer (A-D): ")
+    iscorrect=checkanswer(guess,questionbank[questionnum]["answer"])
+    if iscorrect:
+        print("correct answer")
+        score+=1
+    else:
+        print("Incorrect answer")
+        print(f"Correct answer is {questionbank[questionnum]['answer']}")
+    print(f"your current score is {score}/{questionnum+1}")
+print(f"you have given {score} correct answers")
+print(f"Final score is {score} ")
